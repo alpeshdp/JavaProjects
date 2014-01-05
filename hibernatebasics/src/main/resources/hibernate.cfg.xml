@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection settings -->
+
+        <!-- HSQL Db connection properties -->
+        <!--<property name="connection.driver_class">org.hsqldb.jdbcDriver</property>-->
+        <!--<property name="connection.url">jdbc:hsqldb:hsql://localhost</property>-->
+        <!--<property name="connection.username">sa</property>-->
+        <!--<property name="connection.password"></property>-->
+        <!--<property name="dialect">org.hibernate.dialect.HSQLDialect</property>-->
+
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost/hibernate_basics</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">password</property>
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">1</property>
+
+        <!-- SQL dialect -->
+
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">update</property>
+
+		<mapping class="com.tw.hibernate.basics.User"/>
+
+        <mapping class="com.tw.hibernate.basics.one2many.unidir.Product"/>
+        <mapping class="com.tw.hibernate.basics.one2many.unidir.Part"/>
+        <mapping class="com.tw.hibernate.basics.one2many.unidir.License"/>
+        <mapping class="com.tw.hibernate.basics.one2many.unidir.UserSession"/>
+        
+        <mapping class="com.tw.hibernate.basics.one2many.bidir.Customer"/>
+        <mapping class="com.tw.hibernate.basics.one2many.bidir.Orders"/>
+        <mapping class="com.tw.hibernate.basics.one2many.bidir.Team"/>
+        <mapping class="com.tw.hibernate.basics.one2many.bidir.Player"/>
+        <mapping class="com.tw.hibernate.basics.one2many.bidir.Troop"/>
+        <mapping class="com.tw.hibernate.basics.one2many.bidir.Soldier"/>
+        <mapping class="com.tw.hibernate.basics.many2many.bidir.Employer"/>
+        <mapping class="com.tw.hibernate.basics.many2many.bidir.Employee"/>
+
+    </session-factory>
+</hibernate-configuration>
+
