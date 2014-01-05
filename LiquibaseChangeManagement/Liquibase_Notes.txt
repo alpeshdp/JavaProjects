@@ -1,0 +1,15 @@
+java -jar liquibase.jar \ --driver=oracle.jdbc.OracleDriver \ --classpath=\path\to\classes:jdbcdriver.jar \ --changeLogFile=com/example/db.changelog.xml \ --url="jdbc:oracle:thin:@localhost:1521:oracle" \ --username=scott \ --password=tiger \ update
+
+
+
+java -cp D:\devel\spring\Liquibase\target\classes;D:/Users/aparekh/.m2/repository/org/liquibase/liquibase-core/2.0.5/liquibase-core-2.0.5.jar;D:\Users\aparekh\.m2\repository\mysql\mysql-connector-java\5.1.26\mysql-connector-java-5.1.26.jar; liquibase.integration.commandline.Main --driver=com.mysql.jdbc.Driver --changeLogFile=db.changelog.xml --url=jdbc:mysql://localhost:3306/tree_1 --username=root --password=password update
+
+java -cp D:\devel\spring\Liquibase\target\classes;D:/Users/aparekh/.m2/repository/org/liquibase/liquibase-core/2.0.5/liquibase-core-2.0.5.jar;D:\Users\aparekh\.m2\repository\mysql\mysql-connector-java\5.1.26\mysql-connector-java-5.1.26.jar; liquibase.integration.commandline.Main --driver=com.mysql.jdbc.Driver --changeLogFile=db.changelog.xml --url=jdbc:mysql://localhost:3306/tree_1 --username=root --password=password tag r_1
+
+
+java -cp D:\devel\spring\Liquibase\target\classes;D:/Users/aparekh/.m2/repository/org/liquibase/liquibase-core/2.0.5/liquibase-core-2.0.5.jar;D:\Users\aparekh\.m2\repository\mysql\mysql-connector-java\5.1.26\mysql-connector-java-5.1.26.jar; liquibase.integration.commandline.Main --driver=com.mysql.jdbc.Driver --changeLogFile=db.changelog.xml --url=jdbc:mysql://localhost:3306/tree_1 --username=root --password=password rollback r_1
+
+
+
+SELECT tag FROM databasechangelog ORDER BY DATEEXECUTED desc LIMIT 1
+
